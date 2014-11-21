@@ -7,7 +7,9 @@
 QT       += core gui
 
 QT += widgets
+QT += bluetooth
 
+CONFIG += c++11
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = bluelock
@@ -19,12 +21,14 @@ SOURCES += main.cpp\
     lockerwindows.cpp \
     lockerlinux.cpp \
     lockercoordinator.cpp \
-    lockerif.cpp
+    lockerif.cpp \
+    bluelockserver.cpp
 
 HEADERS  += bluelockmain.h \
     lockerwindows.h \
     lockerlinux.h \
     lockercoordinator.h \
-    lockerif.h
+    lockerif.h \
+    bluelockserver.h
 
 FORMS    += bluelockmain.ui

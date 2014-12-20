@@ -4,8 +4,9 @@
 class LockerIF
 {
 public:
-    virtual bool lock()=0;
-    virtual bool unlock()=0;
+    virtual void lock()=0;
+    virtual void unlock()=0;
+    virtual void shutdown()=0;
     virtual int getStatus()=0;
 };
 

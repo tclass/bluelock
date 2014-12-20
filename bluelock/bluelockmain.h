@@ -5,7 +5,7 @@
 #include <QString>
 #include <bluelockserver.h>
 #include <lockercoordinator.h>
-
+#include <qdebug.h>
 namespace Ui {
 
 class BluelockMain;

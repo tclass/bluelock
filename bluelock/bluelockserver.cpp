@@ -18,11 +18,12 @@ void BluelockServer::startDiscover(){
 }
 
 void BluelockServer::addDevice(const QBluetoothDeviceInfo& device){
-    if(!devices.contains(device.address().toString())){
 
-        devices.insert(device.address().toString(),device.name());
+    if (!devices.contains(device.address().toString()) /*&& device.coreConfigurations() & QBluetoothDeviceInfo::LowEnergyCoreConfiguration*/) {
+        devices.insert(device.name(),device.address());
+        qWarning() << "Discovered LE Device name: " << device.name() << " Address: " << device.address().toString();
     }
-    qWarning() << "Discovered LE Device name: " << device.name() << " Address: " << device.address().toString();
+
 }
 
 void BluelockServer::deviceScanError(QBluetoothDeviceDiscoveryAgent::Error error){
@@ -36,4 +37,6 @@ void BluelockServer::scanFinished(){
     emit discoverdDevices(devices);
     devices.clear();
 }
+
+
 

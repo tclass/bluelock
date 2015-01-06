@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QString>
 #include <QHash>
+#include <QLowEnergyController>
 #include <qbluetoothservicediscoveryagent.h>
 
 static const QString serviceUuid(QStringLiteral("Bluelock 1.0"));
@@ -14,16 +15,17 @@ class BluelockServer : public QObject
 public:
     explicit BluelockServer(QObject *parent = 0);
     void startDiscover();
+    void connectToDevice(const QBluetoothDeviceInfo&);
 
 private:
     QBluetoothDeviceDiscoveryAgent *discoveryAgent = NULL;
-    QHash<QString,QString> devices;
+    QHash<QString,QBluetoothAddress> devices;
 
 signals:
     void deviceDiscovered(const QBluetoothDeviceInfo&);
     void error(QBluetoothDeviceDiscoveryAgent::Error);
     void finished();
-    void discoverdDevices(QHash<QString,QString>);
+    void discoverdDevices(QHash<QString,QBluetoothAddress>);
 
 public slots:
     void addDevice(const QBluetoothDeviceInfo& device);

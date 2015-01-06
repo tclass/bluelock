@@ -5,6 +5,7 @@
 #include <QString>
 #include <bluelockserver.h>
 #include <lockercoordinator.h>
+#include <bluelockserviceconnector.h>
 #include <qdebug.h>
 namespace Ui {
 
@@ -20,14 +21,18 @@ public:
     ~BluelockMain();
 
 public slots:
-    void updateDevices(QHash<QString,QString> devices);
+    void updateDevices(QHash<QString,QBluetoothAddress> foundDevices);
 
 private slots:
     void on_deviceBtn_clicked();
 
+    void on_deviceConnectButton_clicked();
+
 private:
+    QHash<QString,QBluetoothAddress> devices;
     Ui::BluelockMain *ui;
     BluelockServer *bluelockServer = NULL;
+    BluelockServiceConnector *bluelockServiceConnector = NULL;
     LockerCoordinator *lockerCoordinator = NULL;
     void setupServices();
 };

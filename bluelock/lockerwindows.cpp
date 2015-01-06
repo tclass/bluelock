@@ -5,19 +5,18 @@ LockerWindows::LockerWindows(QObject *parent) :
 {
 }
 
-bool LockerWindows::unlock()
+void LockerWindows::unlock()
 {
-    return false;
+
 }
 
-bool LockerWindows::lock()
+void LockerWindows::lock()
 {
-    return false;
 }
 
 void LockerWindows::shutdown()
 {
-    return;
+
 }
 
 int LockerWindows::getStatus()

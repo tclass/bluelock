@@ -22,8 +22,6 @@ SOURCES += main.cpp\
     lockerlinux.cpp \
     lockercoordinator.cpp \
     lockerif.cpp \
-    bluelockserver.cpp \
-    bluelockserviceconnector.cpp \
     bluelockservice.cpp
 
 HEADERS  += bluelockmain.h \
@@ -31,8 +29,6 @@ HEADERS  += bluelockmain.h \
     lockerlinux.h \
     lockercoordinator.h \
     lockerif.h \
-    bluelockserver.h \
-    bluelockserviceconnector.h \
     bluelockservice.h
 
 FORMS    += bluelockmain.ui

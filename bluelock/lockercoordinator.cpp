@@ -1,17 +1,19 @@
 #include "lockercoordinator.h"
 
-LockerCoordinator::LockerCoordinator(BluelockServer *server, QObject *parent) : QObject(parent)
+LockerCoordinator::LockerCoordinator(QObject *parent) : QObject(parent)
 {
-    blueServer = server;
     locker = new LockerLinux();
-    activateTimer();
 }
-void LockerCoordinator::activateTimer(){
-   // timer = new QTimer(this);
-   // connect(timer, SIGNAL(timeout()), this, SLOT(kickOffDiscovery()));
-   // timer->start(20000); //time specified in ms
+void LockerCoordinator::receive(int code){
+    switch(code){
+
+    case LockerIF::LOCK:          locker->lock(); break;
+    case LockerIF::UNLOCK:        locker->unlock(); break;
+    case LockerIF::SHUTDOWN:      locker->shutdown(); break;
+    case LockerIF::SHUTDOWN_TIME: locker->shutdown(); break;
+    }
 }
 
-void LockerCoordinator::kickOffDiscovery(){
-    blueServer->startDiscover();
+LockerCoordinator::~LockerCoordinator(){
+
 }

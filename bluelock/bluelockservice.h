@@ -5,6 +5,7 @@
 #include <QBluetoothServer>
 #include <qdebug.h>
 #include <QBluetoothLocalDevice>
+#include <lockerlinux.h>
 
 class BluelockService : public QObject
 {
@@ -12,22 +13,31 @@ class BluelockService : public QObject
 public:
     explicit BluelockService(QObject *parent = 0);
     ~BluelockService();
+    void startService();
+signals:
+    void notify(int);
+
+public slots:
+    void acceptConnection();
+    void readNextData();
 
 private:
     QBluetoothSocket *socket = NULL;
-    QBluetoothServer *server = NULL;
-    QBluetoothUuid *uuid = NULL;
-    QString *serviceName = new QString("BLUELOCK");
-    QBluetoothServiceInfo  service;
+    QBluetoothServer *server;
+
+    LockerLinux ll;
+    QBluetoothServiceInfo service;
     QBluetoothLocalDevice localDevice;
+
+    const QBluetoothUuid uuid = QBluetoothUuid(QBluetoothUuid::HumanInterfaceDeviceService);
+    const QString serviceName = QString("BLUELOCK");
 
 signals:
     void newConnection();
     void readyRead();
 
-public slots:
-    void acceptConnection();
-    void readNextData();
+
+
 };
 
 #endif // BLUELOCKSERVICE_H

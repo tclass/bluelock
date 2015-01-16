@@ -17,7 +17,7 @@ public:
 
 private:
     int status=-1;
-    QProcess *system;
+    QProcess system;
 
 signals:
 

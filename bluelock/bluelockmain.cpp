@@ -9,14 +9,14 @@ BluelockMain::BluelockMain(QWidget *parent) :
     this->setupServices();
 }
 
-BluelockMain::~BluelockMain()
-{
-    delete ui;
-}
-
 void BluelockMain::setupServices()
 {
     qDebug() << "Setting up server";
     bluelockservice.startService();
     connect(&bluelockservice,&BluelockService::notify,&lockerCoordinator,&LockerCoordinator::receive);
+}
+
+BluelockMain::~BluelockMain()
+{
+    delete ui;
 }

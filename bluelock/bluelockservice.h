@@ -22,15 +22,15 @@ public slots:
     void readNextData();
 
 private:
-    QBluetoothSocket *socket = NULL;
-    QBluetoothServer *server;
+    std::unique_ptr<QBluetoothSocket> socket = NULL;
+    std::unique_ptr<QBluetoothServer> server;
 
     BluelockLinux ll;
     QBluetoothServiceInfo service;
     QBluetoothLocalDevice localDevice;
 
     const QBluetoothUuid uuid = QBluetoothUuid(QBluetoothUuid::HumanInterfaceDeviceService);
-    const QString serviceName = QString("BLUELOCK");
+    const QString serviceName = QStringLiteral("BLUELOCK");
 
 signals:
     void newConnection();

@@ -18,5 +18,4 @@ void BluelockMain::setupServices()
 
 BluelockMain::~BluelockMain()
 {
-    delete ui;
 }

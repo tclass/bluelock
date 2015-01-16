@@ -2,15 +2,15 @@
 #define LOCKERCOORDINATOR_H
 
 #include <QObject>
-#include <lockerif.h>
-#include <lockerlinux.h>
+#include <bluelockif.h>
+#include <bluelocklinux.h>
 
 class LockerCoordinator : public QObject
 {
     Q_OBJECT
 public:
     explicit LockerCoordinator(QObject *parent = 0);
-    LockerIF *locker;
+    BluelockIF *locker;
     ~LockerCoordinator();
 
 public slots:

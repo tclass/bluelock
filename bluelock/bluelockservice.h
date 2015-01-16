@@ -5,7 +5,7 @@
 #include <QBluetoothServer>
 #include <qdebug.h>
 #include <QBluetoothLocalDevice>
-#include <lockerlinux.h>
+#include <bluelocklinux.h>
 
 class BluelockService : public QObject
 {
@@ -25,7 +25,7 @@ private:
     QBluetoothSocket *socket = NULL;
     QBluetoothServer *server;
 
-    LockerLinux ll;
+    BluelockLinux ll;
     QBluetoothServiceInfo service;
     QBluetoothLocalDevice localDevice;
 

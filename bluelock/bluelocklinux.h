@@ -2,14 +2,14 @@
 #define LOCKERLINUX_H
 
 #include <QObject>
-#include <lockerif.h>
+#include <bluelockif.h>
 #include <QProcess>
 
-class LockerLinux : public QObject, public LockerIF
+class BluelockLinux : public QObject, public BluelockIF
 {
     Q_OBJECT
 public:
-    explicit LockerLinux(QObject *parent = 0);
+    explicit BluelockLinux(QObject *parent = 0);
     virtual void unlock();
     virtual void lock();
     virtual void shutdown();

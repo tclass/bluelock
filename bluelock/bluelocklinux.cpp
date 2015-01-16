@@ -1,35 +1,35 @@
-#include "lockerlinux.h"
+#include "bluelocklinux.h"
 
 
-LockerLinux::LockerLinux(QObject *parent) :
+BluelockLinux::BluelockLinux(QObject *parent) :
     QObject(parent)
 {
     system = new QProcess();
 }
 
-void LockerLinux::unlock()
+void BluelockLinux::unlock()
 {
     system->start("gnome-screensaver-command --deactivate");
     system->closeWriteChannel();
-    status = 0;
+    status = BluelockIF::protocol::UNLOCK;
 }
 
-void LockerLinux::lock()
+void BluelockLinux::lock()
 {
 
     system->start("gnome-screensaver-command --lock");
     system->closeWriteChannel();
-    status = 1;
+    status = BluelockIF::protocol::LOCK;
 }
 
-void LockerLinux::shutdown()
+void BluelockLinux::shutdown()
 {
     system->start("shutdown -h");
     system->closeWriteChannel();
-    status = 3;
+    status = BluelockIF::protocol::SHUTDOWN;
 }
 
-int LockerLinux::getStatus()
+int BluelockLinux::getStatus()
 {
     return status;
 }

@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 #include <QString>
-#include <lockercoordinator.h>
+#include <bluelockcoordinator.h>
 #include <qdebug.h>
 #include <bluelockservice.h>
 

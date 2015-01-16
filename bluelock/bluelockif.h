@@ -1,10 +1,8 @@
 #ifndef LOCKERIF_H
 #define LOCKERIF_H
 
-class LockerIF
+class BluelockIF
 {
-
-
 
 public:
     virtual void lock()=0;

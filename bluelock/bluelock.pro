@@ -18,17 +18,17 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         bluelockmain.cpp \
-    lockerwindows.cpp \
-    lockerlinux.cpp \
-    lockercoordinator.cpp \
-    lockerif.cpp \
-    bluelockservice.cpp
+    bluelockservice.cpp \
+    bluelockcoordinator.cpp \
+    bluelockif.cpp \
+    bluelocklinux.cpp \
+    bluelockwindows.cpp
 
 HEADERS  += bluelockmain.h \
-    lockerwindows.h \
-    lockerlinux.h \
-    lockercoordinator.h \
-    lockerif.h \
-    bluelockservice.h
+    bluelockservice.h \
+    bluelockwindows.h \
+    bluelocklinux.h \
+    bluelockif.h \
+    bluelockcoordinator.h
 
 FORMS    += bluelockmain.ui

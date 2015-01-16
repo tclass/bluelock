@@ -7,6 +7,8 @@
 #include <lockercoordinator.h>
 #include <bluelockserviceconnector.h>
 #include <qdebug.h>
+#include <bluelockservice.h>
+
 namespace Ui {
 
 class BluelockMain;
@@ -32,6 +34,7 @@ private:
     QHash<QString,QBluetoothAddress> devices;
     Ui::BluelockMain *ui;
     BluelockServer *bluelockServer = NULL;
+    BluelockService *bluelockservice = NULL;
     BluelockServiceConnector *bluelockServiceConnector = NULL;
     LockerCoordinator *lockerCoordinator = NULL;
     void setupServices();

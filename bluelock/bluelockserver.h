@@ -31,7 +31,6 @@ public slots:
     void addDevice(const QBluetoothDeviceInfo& device);
     void deviceScanError(QBluetoothDeviceDiscoveryAgent::Error error);
     void scanFinished();
-
 };
 
 #endif // BLUETOOTHSERVER_H

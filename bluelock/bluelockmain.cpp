@@ -17,7 +17,10 @@ BluelockMain::~BluelockMain()
 void BluelockMain::setupServices()
 {
     qDebug() << "Setting up server";
-    bluelockServer = new BluelockServer();
+    //bluelockServer = new BluelockServer();
+    bluelockservice = new BluelockService();
+
+
     connect(bluelockServer,SIGNAL(discoverdDevices(QHash<QString,QBluetoothAddress>)), this, SLOT(updateDevices(QHash<QString,QBluetoothAddress>)));
     lockerCoordinator = new LockerCoordinator(bluelockServer);
 }

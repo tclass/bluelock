@@ -30,6 +30,7 @@ void BluelockServer::deviceScanError(QBluetoothDeviceDiscoveryAgent::Error error
     qWarning() << error;
 }
 
+
 void BluelockServer::scanFinished(){
 
     qDebug() << "scan finished";

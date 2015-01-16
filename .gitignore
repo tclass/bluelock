@@ -50,3 +50,4 @@ proguard/
 *.autosave
 
 build-bluelock*
+*.pro.user*

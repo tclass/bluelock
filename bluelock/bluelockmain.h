@@ -21,7 +21,7 @@ public:
     ~BluelockMain();
 
 private:
-    Ui::BluelockMain *ui;
+    std::unique_ptr<Ui::BluelockMain> ui;
     BluelockService bluelockservice;
     LockerCoordinator lockerCoordinator;
     void setupServices();

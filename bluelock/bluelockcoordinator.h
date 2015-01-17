@@ -4,6 +4,7 @@
 #include <QObject>
 #include <bluelockif.h>
 #include <bluelocklinux.h>
+#include <memory>
 
 class LockerCoordinator : public QObject
 {

@@ -6,6 +6,7 @@
 #include <qdebug.h>
 #include <QBluetoothLocalDevice>
 #include <bluelocklinux.h>
+#include <memory>
 
 class BluelockService : public QObject
 {

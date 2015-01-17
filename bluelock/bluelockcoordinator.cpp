@@ -4,7 +4,7 @@ LockerCoordinator::LockerCoordinator(QObject *parent) : QObject(parent)
 {
     // We have to decide if we are on windows or linux
     // for now the linux locker just implements the gnome commands
-    locker = new BluelockLinux();
+    locker = std::shared_ptr<BluelockIF>(new BluelockLinux());
 }
 void LockerCoordinator::receive(int code){
     switch(code){

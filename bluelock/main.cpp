@@ -15,16 +15,16 @@ void customMessageHandler(QtMsgType type, const QMessageLogContext& context, con
     std::cout << message.toStdString() << std::endl;
     switch (type) {
     case QtDebugMsg:
-        txt = QString("Debug - %1: %2").arg(time.currentTime().toString()).arg(message);
+        txt = QStringLiteral("Debug - %1: %2").arg(time.currentTime().toString()).arg(message);
         break;
     case QtWarningMsg:
-        txt = QString("Warning - %1: %2").arg(time.currentTime().toString()).arg(message);
+        txt = QStringLiteral("Warning - %1: %2").arg(time.currentTime().toString()).arg(message);
         break;
     case QtCriticalMsg:
-        txt = QString("Critical - %1: %2").arg(time.currentTime().toString()).arg(message);
+        txt = QStringLiteral("Critical - %1: %2").arg(time.currentTime().toString()).arg(message);
         break;
     case QtFatalMsg:
-        txt = QString("Fatal - %1: %2").arg(time.currentTime().toString()).arg(message);
+        txt = QStringLiteral("Fatal - %1: %2").arg(time.currentTime().toString()).arg(message);
         abort();
     }
     QFile outFile("bluelock_log");

@@ -16,6 +16,7 @@ public:
     virtual int getStatus();
 
 private:
+    void afterCall(short code);
     int status=-1;
     QProcess system;
 

@@ -5,26 +5,28 @@ BluelockLinux::BluelockLinux(QObject *parent) : QObject(parent)
 {
 }
 
+void BluelockLinux::afterCall(short code){
+    system.closeWriteChannel();
+    status = code;
+}
+
 void BluelockLinux::unlock()
 {
     system.start("gnome-screensaver-command --deactivate");
-    system.closeWriteChannel();
-    status = BluelockIF::protocol::UNLOCK;
+    afterCall(protocol::UNLOCK);
 }
 
 void BluelockLinux::lock()
 {
 
     system.start("gnome-screensaver-command --lock");
-    system.closeWriteChannel();
-    status = BluelockIF::protocol::LOCK;
+    afterCall(protocol::LOCK);
 }
 
 void BluelockLinux::shutdown()
 {
     system.start("shutdown -h");
-    system.closeWriteChannel();
-    status = BluelockIF::protocol::SHUTDOWN;
+    afterCall(protocol::SHUTDOWN);
 }
 
 int BluelockLinux::getStatus()

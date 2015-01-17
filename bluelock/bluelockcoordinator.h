@@ -10,7 +10,7 @@ class LockerCoordinator : public QObject
     Q_OBJECT
 public:
     explicit LockerCoordinator(QObject *parent = 0);
-    BluelockIF *locker;
+    std::shared_ptr<BluelockIF> locker;
     ~LockerCoordinator();
 
 public slots:

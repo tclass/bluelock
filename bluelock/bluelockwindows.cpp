@@ -19,6 +19,10 @@ void BluelockWindows::shutdown()
     qDebug() << "not implemented yet";
 }
 
+void BluelockWindows::shutdown_time(int time){
+    qDebug() << "not implemented yet";
+}
+
 int BluelockWindows::getStatus()
 {
     return BluelockIF::NONE;

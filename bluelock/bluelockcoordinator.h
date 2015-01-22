@@ -15,7 +15,7 @@ public:
     ~LockerCoordinator();
 
 public slots:
-    void receive(int code);
+    void receive(int code, int extra);
 };
 
 #endif // LOCKERCOORDINATOR_H

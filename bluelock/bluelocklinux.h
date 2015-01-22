@@ -13,6 +13,7 @@ public:
     virtual void unlock();
     virtual void lock();
     virtual void shutdown();
+    virtual void shutdown_time(int time);
     virtual int getStatus();
 
 private:

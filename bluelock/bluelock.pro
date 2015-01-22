@@ -10,6 +10,7 @@ QT += widgets
 QT += bluetooth
 
 CONFIG += c++11
+DEFINES += __GXX_EXPERIMENTAL_CXX0X__
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = bluelock

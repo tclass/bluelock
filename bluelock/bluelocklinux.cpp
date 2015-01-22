@@ -25,8 +25,17 @@ void BluelockLinux::lock()
 
 void BluelockLinux::shutdown()
 {
-    system.start("shutdown -h");
+    QStringList arguments;
+    arguments << "-h" << "now";
+    system.execute("shutdown", arguments);
     afterCall(protocol::SHUTDOWN);
+}
+
+void BluelockLinux::shutdown_time(int time){
+    QStringList arguments;
+    arguments << "-h" << "-t" << QString(time);
+    system.execute("shutdown", arguments);
+    afterCall(protocol::SHUTDOWN_TIME);
 }
 
 int BluelockLinux::getStatus()

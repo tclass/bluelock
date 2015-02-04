@@ -3,6 +3,10 @@
 
 BluelockLinux::BluelockLinux(QObject *parent) : QObject(parent)
 {
+    QStringList usernameSplit = QDir::homePath().split("/");
+    if(usernameSplit.size() > 2){
+        username = usernameSplit[2];
+    }
 }
 
 void BluelockLinux::afterCall(short code){
@@ -12,14 +16,14 @@ void BluelockLinux::afterCall(short code){
 
 void BluelockLinux::unlock()
 {
-    system.start("gnome-screensaver-command --deactivate");
+    system.start("sudo -u "+username+" gnome-screensaver-command --deactivate");
     afterCall(protocol::UNLOCK);
 }
 
 void BluelockLinux::lock()
 {
 
-    system.start("gnome-screensaver-command --lock");
+    system.start("sudo -u "+username+" gnome-screensaver-command --lock");
     afterCall(protocol::LOCK);
 }
 

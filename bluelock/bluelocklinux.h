@@ -2,8 +2,11 @@
 #define LOCKERLINUX_H
 
 #include <QObject>
-#include <bluelockif.h>
 #include <QProcess>
+#include <QDir>
+#include <QDebug>
+#include <bluelockif.h>
+
 
 class BluelockLinux : public QObject, public BluelockIF
 {
@@ -20,6 +23,7 @@ private:
     void afterCall(short code);
     int status=-1;
     QProcess system;
+    QString username;
 
 signals:
 
